@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
     const price = new FormData(event.target).get('priceSelect')
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
-      mode: 'payment',
+      mode: 'subscription',
       lineItems: [{ price, quantity: 1 }],
       successUrl: `${window.location.origin}/page-2/`,
       cancelUrl: `${window.location.origin}/advanced`,
@@ -69,8 +69,9 @@ const ProductCard = ({ product }) => {
           <legend>
             <h4>{product.name}</h4>
           </legend>
+          <img src="https://i.pinimg.com/originals/cc/60/03/cc6003798bd620f07cd54da9539e7609.jpg" />
           <label>
-            Price{' '}
+            Preço{' '}
             <select name="priceSelect">
               {product.prices.map(price => (
                 <option key={price.id} value={price.id}>
@@ -88,7 +89,7 @@ const ProductCard = ({ product }) => {
               : buttonStyles
           }
         >
-          BUY ME
+          COMPRAR
         </button>
       </form>
     </div>
