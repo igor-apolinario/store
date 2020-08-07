@@ -32,16 +32,16 @@ const Contact = () => (
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
               <div className="app-form-group">
-                <input name="name" className="app-form-control" placeholder="NOME" />
+                <input name="name" className="app-form-control" placeholder="NOME" required />
               </div>
               <div className="app-form-group">
-                <input name="email" className="app-form-control" placeholder="EMAIL" />
+                <input name="email" className="app-form-control" placeholder="EMAIL" required />
               </div>
               <div className="app-form-group">
                 <input name="phone" className="app-form-control" placeholder="TELEFONE" />
               </div>
               <div className="app-form-group message">
-                <input name="message" className="app-form-control" placeholder="MENSAGEM" />
+                <input name="message" className="app-form-control" placeholder="MENSAGEM" required />
               </div>
               <div className="app-form-group buttons">
                 <button type="submit" className="app-form-button">ENVIAR</button>
