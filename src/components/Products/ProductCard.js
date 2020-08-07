@@ -18,11 +18,11 @@ const buttonStyles = {
   fontSize: '14px',
   fontWeight: 600,
   textAlign: 'center',
-  color: 'rgb(255, 178, 56)',
+  color: '#fddc08',
   padding: '12px',
   boxShadow: '2px 5px 10px rgba(0,0,0,.1)',
   backgroundColor: '#FFF',
-  border: 'solid 1px rgb(255, 178, 56)',
+  border: 'solid 1px #fddc08',
   borderRadius: '6px',
   letterSpacing: '1.5px',
 }
