@@ -15,12 +15,14 @@ const cardStyles = {
 }
 const buttonStyles = {
   display: 'block',
-  fontSize: '13px',
+  fontSize: '14px',
+  fontWeight: 600,
   textAlign: 'center',
-  color: '#000',
+  color: 'rgb(255, 178, 56)',
   padding: '12px',
   boxShadow: '2px 5px 10px rgba(0,0,0,.1)',
-  backgroundColor: 'rgb(255, 178, 56)',
+  backgroundColor: '#FFF',
+  border: 'solid 1px rgb(255, 178, 56)',
   borderRadius: '6px',
   letterSpacing: '1.5px',
 }
@@ -32,7 +34,7 @@ const buttonDisabledStyles = {
 
 const formatPrice = (amount, currency) => {
   let price = (amount / 100).toFixed(2)
-  let numberFormat = new Intl.NumberFormat(['en-US'], {
+  let numberFormat = new Intl.NumberFormat(['pt-BR'], {
     style: 'currency',
     currency: currency,
     currencyDisplay: 'symbol',
@@ -50,10 +52,11 @@ const ProductCard = ({ product }) => {
     const price = new FormData(event.target).get('priceSelect')
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
-      mode: 'subscription',
+      mode: 'payment',
       lineItems: [{ price, quantity: 1 }],
       successUrl: `${window.location.origin}/page-2/`,
       cancelUrl: `${window.location.origin}/advanced`,
+      locale: 'pt-BR'
     })
 
     if (error) {

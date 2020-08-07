@@ -26,10 +26,11 @@ const Checkout = () => {
 
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
-      mode: 'subscription',
+      mode: 'payment',
       lineItems: [{ price: process.env.GATSBY_BUTTON_PRICE_ID, quantity: 1 }],
       successUrl: `${window.location.origin}/page-2/`,
       cancelUrl: `${window.location.origin}/`,
+      locale: 'pt-BR'
     })
 
     if (error) {
